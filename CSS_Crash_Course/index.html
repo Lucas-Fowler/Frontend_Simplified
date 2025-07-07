@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- This is Internal CSS (not recommended)
+    <style>
+      h1 { 
+        color: red;
+        font-size: 12px;
+      }
+    </style> -->
+    <!-- this is how to link CSS file -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- this is how to import fonts from google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="nav">
+      <!-- has to have double underscore and double hyphen    -->
+      <a href="nav__link nav__link--active">Home</a>
+      <a href="nav__link">About</a>
+      <a href="nav__link">Pricing</a>
+      <a href="nav__link">Contact</a>
+    </nav>
+    <!--
+    Different types of CSS:
+    1. Inline CSS - Style directly in the HTML element
+    2. Internal CSS - Using <style> tags within an HTML file
+    3. External CSS (recommended) - Linking an external CSS file  
+    -->
+    <!-- This is an example of Inline CSS
+    <h1 style="color: red">My name is Lucas</h1> -->
+    <h1>My name is Lucas</h1>
+    <div class="div_practice">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ad
+        dolore, excepturi at harum officia dignissimos repellendus distinctio
+        cupiditate architecto corrupti ea atque eius unde aperiam. Pariatur
+        debitis accusantium voluptatum!
+      </p>
+    </div>
+    <!-- ids used in sections to jump around the page -->
+    <!-- more than one class is separated by a space for inline styling -->
+    <section id="home">
+      <h1>Home</h1>
+      <p id="title" class="red">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cum
+        dolor nihil ratione ad quod voluptas voluptatum iure officia animi.
+      </p>
+      <a href="#info">Go to info</a>
+    </section>
+    <section id="info">
+      <h1>Info</h1>
+      <p class="red">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cum
+        dolor nihil ratione ad quod voluptas voluptatum iure officia animi.
+      </p>
+      <a href="#footer">Go to footer</a>
+    </section>
+    <section id="footer">
+      <h1>Footer</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cum
+        dolor nihil ratione ad quod voluptas voluptatum iure officia animi.
+      </p>
+      <a href="#home">Back to home</a>
+    </section>
+    <!-- vertical margins of 2 divs collapse -->
+    <div class="box"></div>
+    <div class="box"></div>
+    <hr />
+    <p>My Name is Lucas</p>
+    <p>My Name is Lucas</p>
+    <span>My name</span>
+    <span>is Lucas</span>
+    <hr />
+    <div class="div red_div">
+      <div class="div child"></div>
+    </div>
+    <div class="div"></div>
+    <div class="div"></div>
+    <hr />
+    <button>Contrast</button>
+    <hr />
+  </body>
+</html>

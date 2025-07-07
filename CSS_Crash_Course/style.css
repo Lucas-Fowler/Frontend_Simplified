@@ -1,0 +1,230 @@
+/* Universal styling */
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.nav__link {
+  color: black;
+}
+
+.nav__link--active {
+  color: purple;
+  font-weight: bold;
+}
+
+h1 {
+  /* 
+  Different ways to set color:
+  1. Words: red, green, blue, cyan
+  2. RGB: rgb(0,255,0, 0.5) -> green with opacity 0.5
+  3. Hex: #ff0000 -> red 
+  */
+  /* Sets the color of the text */
+  color: rgb(0, 0, 0, 1);
+  /* Sets the background-color of the element
+  background-color: red; */
+}
+
+.div_practice {
+  /* sets the width and height of the element */
+  /* Avoid hard-coding width and height of the element like this:
+  width: 500px;
+  height: 500px; */
+  /* do this instead: */
+  width: 100%;
+  max-width: 800px;
+  /* percentage of the viewport height */
+  /* height: 30vw; */
+  /* height: 100vw changes height with respect to changing the width of the screen */
+  background-color: cyan;
+  /* 
+  Border styling:
+  border: 1px solid black;
+  Can also set border properties separately: 
+  border-width: 2px;
+  border-style: dotted;
+  border-color: red;
+  */
+  font-size: 15px;
+  /* If roboto isn't supported in browser, falls back to sans-serif */
+  font-weight: 500;
+}
+
+section {
+  height: 60vh;
+  border: 1px solid black;
+}
+
+/* Specificity is the priorization of the styling 
+p.red {                       least important
+  color: purple;
+}
+.heading.red {                more important
+  color: black;
+}
+#title {                      more important
+  color: red;
+}
+#title.heading.red {          more important
+  color: blue;
+}
+p {
+  color: green !important;    most important
+}
+
+NOTE: Inline styles have higher specificity than ID selectors but lower than !important
+
+*/
+p {
+  color: blue;
+}
+
+/* Classes can be used for more than one html block */
+.red {
+  color: red;
+}
+
+/* IDs can only be used for one html block */
+#title {
+  color: black;
+}
+
+/* The Box Model - A container that consists of multiple different properties such as: Content, Padding, Border, and Margin */
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: green;
+  border: 15px solid red;
+  padding: 15px 15px 15px 15px; /* attributes work in a clockwise manner starting from top */
+  margin: 15px;
+  box-sizing: border-box; /* border-box means all sections of the box model add up to 200 */
+  /* border-box is best practice */
+  /* margins to separate elements from each other
+     padding to increase space between content and the border */
+}
+
+/* Complex CSS Properties: Display and Position 
+
+Display: (Two CSS display values)
+  block
+    -Takes 100% of the width and starts on a new line
+    -e.g. <p> <div> tags
+  inline
+    -Doesn't allow you to set a width or height for element & starts on the same line
+    -e.g. <span> <img> tags
+
+Position: 
+  static (default)
+    -Follows normal flow of the page
+  relative
+    -Follows normal flow of the page
+    -Lets you position using top, left, bottom, right
+  absolute
+    -Doesn't follow the normal flow of the page
+    -Lets you position with top, left, bottom, right
+    -Position is based on closest 'position: relative' parent
+Uncommon Positions:
+  fixed
+    -Sticks element to a permanent location on the page
+    -Lets you use top, left, bottom, right
+  sticky
+    -Sticks element to a permanent location on the page once it hits a threshold    
+    */
+.div {
+  height: 200px;
+  border: 3px solid black;
+  background-color: transparent;
+}
+
+.red_div {
+  background-color: red;
+  position: relative;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.child {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+div {
+  background-color: red;
+  color: white;
+  font-size: 30px;
+}
+
+/* 
+MEDIA QUERIES:
+Common Breakpoints (max-width)
+576px - Mobile Phones
+768px - Tablets
+992px - Desktops
+1200px + - Large Desktops
+*/
+@media (max-width: 992px) {
+  div {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  div {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  div {
+    font-size: 10px;
+  }
+}
+
+
+/*
+Pseudo Selectors:
+-We have 2 pseudo elements in CSS - after and before 
+-Pseudo class - hover
+*/
+div {
+  /*Transitions in and out when put it in the parent rather than in hover */
+  transition: background-color 400ms;
+}
+
+div:hover {
+  background-color: rgb(55, 6, 114);
+}
+
+button {
+  padding: 10px;
+  animation: float 2000ms infinite alternate-reverse; 
+  transition: all 400ms;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/*
+BEM (Block-Element-Modifier) is a naming convention used for CSS classes to make them easier to read and understand
+B [block] is the block component
+E [element] is dependent on the block component
+M [modifier] is used to change the style of the block
+*/

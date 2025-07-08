@@ -1,0 +1,182 @@
+/* Flexbox Layout
+
+   display: block; aligns objects vertically starting from the top and is stationary
+   display: flex; aligns objects horizontally to the top of the container (by default)
+   
+   - display: flex allows you to do display-direction, align items, and justify content
+   
+   display-direction: row; aligns objects in a row (by default)
+   display-direction: column; aligns objects in a column
+   
+   (vertical)
+   align-items: stretch; aligns objects horizontally and stetches each object to the full height of the container (by default) *Unless height is otherwise specified 
+   align-items: center; centers objects vertically in the container
+   align-items: flex-end; aligns objects horizontally to the bottom of the container
+   
+   (horizontal)
+   justify-content: flex-start; aligns objects horizontally to the left of the container (by default)
+   justify-content: center; centers objects horizontally in the container
+   justify-content: flex-end; aligns  horizontally to the right
+
+   justify-content: space-around; makes sure the spaces between the sides of the container and the closest object on each side of the container and also the spaces between each element are all the same
+   justify-content: space-between; makes sure the spaces between each object are the same with no space between the sides of the container and the closest element on each side
+   justify-content: space-evenly; makes each container side and each object spaced evenly
+
+   Using both justify content and align items:
+
+   1.
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   aligns objects in the center horizontally and vertically
+   
+   2.
+   display: flex;
+   justify-content: space-between;
+   align-items: center; 
+   aligns objects horizontally, centered vertically, with the same amount of space between each object
+
+   When you add flex-direction: column, justify-content and align items switch roles
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+   justify-content: center 
+
+
+   Confusing but important format specifiers (not practical) 
+   
+   1. 
+   flex-direction: row-reverse and flex-direction: column-reverse switch the order of the objects in a container
+
+   2. 
+   flex-start is flexbox-specific and honors the flex-direction
+   start is flow-relative and respects the writing mode and script direction.
+   EX: Consider a container with flex-direction: row-reverse, justify-content: flex-start would align the items to the right (the start of the reversed flex-direction)
+
+   3.
+   order property (FOR BOXES) is written as order: (-2, -1, 0, 1, 2); 
+   and inserts the box at the given index including negative numbers to go at the beginning
+
+   4. 
+   align-self is a property for individual divs and accepts the same values as align-items and its value for the specific item
+
+   5.
+   flex-wrap: 
+   nowrap - Every item is fit into a single line
+   wrap - Items wrap around to additional lines
+   wrap-reverse - Items wrap around to additional lines in reverse
+
+   6.
+   flex-flow - Combination of flex-direction and flex-wrap
+
+   7.
+   align-content - determines the spacing between lines, while align items determines how the items as a whole are aligned within the container
+   *When there is only one line, align-content has no effect
+
+   */
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    justify-self: center;
+    font-family: "Merriweather", sans-serif;
+}
+
+h2 {
+    justify-self: center;
+}
+
+
+/* Original Positions */
+.og_c {
+    position: absolute;
+    justify-self: center;
+    width: 97.45%;
+    height: 600px;
+    border: 2px solid black;
+    padding: 15px;
+    /* df + Enter types display: flex; */
+    /* jcc + Enter types justify-content: center; */
+    /* jcsb + Enter types justify-content: space-between; */
+    /* aic + Enter types align-items: center; */
+    /* Shortcuts by emmet etc. */
+    display: flex;
+    margin-top: 8px;
+    z-index: 1;
+}
+
+.r {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 2px solid black;
+}
+
+.g {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border: 2px solid black;
+}
+
+.y {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+
+.sol_c {
+    top: 10px;
+    position: relative;
+    justify-self: center;
+    width: 100%;
+    height: 600px;
+    padding: 15px;
+    display: flex;
+    flex-flow: column-reverse wrap-reverse;
+    justify-content: center;
+    align-content: space-between;
+    margin-bottom: 30px;
+    z-index: 0;
+}
+
+.sol_r {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255,0,0,0.6);
+    border: 2px dashed black;
+}
+
+.sol_g {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0,128,0,0.6);
+    border: 2px dashed black;
+}
+
+.sol_y {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255,255,0,0.6);
+    border: 2px dashed black;
+}
+
+
+/* Adds a border to the 3rd container with just the solution */
+.non-overlap {
+    border: 2px solid black;
+}
+
+
+
+/* SUPER IMPORTANT POSITION STYLING NOTES
+
+1. static (default) - flows normally with the document, based on HTML order, no effect from top, left, right, or bottom
+2. relative - stays in the normal document flow, but you can move it using top, left, right, or bottom, moves relative to where it would normally be, still takes up space in the layout
+3. absolute - removed from the normal document flow, positioned relative to the nearest positioned ancestor (any parent with relative, absolute, or fixed position), if no ancestors, it uses the <html> (page) as the reference
+4. fixed - similar to absolute, but it's always positioned relative to the browser window, stays in place even when scrolling
+5. sticky - acts like relative until the element reaches a certain scroll position, then it "sticks" like fixed, needs a top, left, etc. value and a scrollable container
